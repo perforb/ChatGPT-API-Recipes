@@ -24,6 +24,7 @@ async def main() -> None:
 
     message = completion.choices[0].message.content
     print(message)
+    print(completion.model_dump_json(indent=2))
 
 
 asyncio.run(main())
