@@ -11,21 +11,18 @@ client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),
 )
 
-embedding_model = "text-embedding-ada-002"
-embedding_encoding = "cl100k_base"
 max_tokens = 1500
 
 
-def get_embedding(text, model="text-embedding-ada-002"):
+def get_embedding(text, model="text-embedding-ada-002") -> list[float]:
     return client.embeddings.create(input=[text], model=model).data[0].embedding
 
 
-def split_into_many(text):
+def split_into_many(text) -> list[str]:
     sentences = text.split('。')
     n_tokens = [len(tokenizer.encode(" " + sentence)) for sentence in sentences]
-    chunks = []
+    chunks = chunk = []
     tokens_so_far = 0
-    chunk = []
     for sentence, token in zip(sentences, n_tokens):
         if tokens_so_far + token > max_tokens:
             chunks.append(". ".join(chunk) + ".")
@@ -48,11 +45,11 @@ if __name__ == '__main__':
     df = pd.read_csv("scraped.csv")
     df.columns = ['title', 'text']
 
+    embedding_encoding = "cl100k_base"
     tokenizer = tiktoken.get_encoding(embedding_encoding)
     df['n_tokens'] = df.text.apply(lambda x: len(tokenizer.encode(x)))
 
     shortened = []
-
     for row in df.iterrows():
         if row[1]['text'] is None:
             continue
@@ -64,5 +61,5 @@ if __name__ == '__main__':
 
     df = pd.DataFrame(shortened, columns=['text'])
     df['n_tokens'] = df.text.apply(lambda x: len(tokenizer.encode(x)))
-    df["embeddings"] = df.text.apply(lambda x: get_embedding(x, model=embedding_model))
+    df["embeddings"] = df.text.apply(lambda x: get_embedding(x))
     df.to_csv('embedding.csv')
