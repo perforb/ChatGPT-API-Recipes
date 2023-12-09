@@ -1,0 +1,17 @@
+Googleが発表したGeminiについての最新情報をお伝えします。
+
+Geminiは、Googleが開発した次世代のAIモデルです。まだトレーニング中のGeminiは、人間の専門家を上回る性能を持つことが報告されています。特に、Massive Multitask Language Understanding（MMLU）という人気のあるテスト方法で、Geminiは人間を凌駕しています。
+
+Google DeepMindがGeminiを開発しており、OpenAIと競合するための新しいLLM（Language Learning Model）を作成しています。Geminiは、さまざまなタスクに対応できる柔軟性と能力を持っています。
+
+Geminiは、GoogleのAIチャットボットであるBardのパワー源としても使用されています。Geminiを搭載したBardは、英語で170以上の国で利用可能です。
+
+Geminiは、3つの異なるサイズ（Ultra、Pro、Nano）で提供されており、複雑なタスクに対応するUltraから、より小規模なタスクに適したPro、Nanoまで、さまざまなニーズに対応しています。
+
+Geminiは、Google AI Studioという無料のウェブベースの開発者ツールで試すことができます。Geminiのデモビデオも公開されており、その柔軟性と能力を実際に体験することができます。
+
+Geminiの発表により、Googleは最も能力の高いAIモデルを提供しています。Geminiは、AIの未来において非常に重要な存在となることが期待されています。
+
+参考URL：[Google Gemini](https://deepmind.google/gemini)
+
+以上が、Googleが発表したGeminiについての最新情報です。
